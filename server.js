@@ -14,4 +14,5 @@ app.use(function (req, res, next) {
 
 require("./controllers/quizzes-controller")(app)
 require("./controllers/questions-controller")(app)
-app.listen(3000||process.env.PORT)
+app.listen(process.env.PORT || 3000,
+    () => console.log("Server is running..."));
