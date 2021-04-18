@@ -1,5 +1,5 @@
 const questions = require('./questions.json')
-const questionsModel=require("../db/quesstions/questions-model")
+const questionsModel=require("../db/models/quesstions/questions-model")
 const createQuestion=()=>{}
 const createQuestionForQuiz=()=>{}
 const findAllQuestions=()=>{
