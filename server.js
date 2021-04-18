@@ -10,7 +10,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/whiteboard-01', {useNewUrlParser: true, useUnifiedTopology: true});
 
 require("./controllers/quizzes-controller")(app)
 require("./controllers/questions-controller")(app)
