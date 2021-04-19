@@ -11,9 +11,12 @@ app.use(function (req, res, next) {
 });
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/whiteboard-01', {useNewUrlParser: true, useUnifiedTopology: true});
-
+mongoose.connect('mongodb+srv://roo1:1234@cluster0.16ia0.mongodb.net/whiteboard', {useNewUrlParser: true, useUnifiedTopology: true});
+var bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 require("./controllers/quizzes-controller")(app)
 require("./controllers/questions-controller")(app)
+require("./controllers/quiz-attempts-controller")(app)
 app.listen(process.env.PORT || 3000,
     () => console.log("Server is running..."));
