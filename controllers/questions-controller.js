@@ -13,12 +13,19 @@ module.exports=(app)=>{
         const quizId=req.params.qzid;
         // const questions=questionService.findAllQuestionsForQuiz(quizId);
         // res.send(questions)
-        questionService.findAllQuestionsForQuiz(quizId)
+        questionService.findQuestionsForQuiz(quizId)
             .then((questions)=>{
                 res.send(questions)
             })
 
     }
+    const findQuestionById=(req,res)=>{
+        const quizId=req.params.qid;
+        questionService.findQuestionById(quizId)
+            .then(question=>res.send(question))
+
+    }
     app.get("/api/questions",findAllQuestions);
     app.get("/api/quizzes/:qzid/questions",findQuestionsForQuiz)
+    app.get("/api/questions/:qid/",findQuestionById)
 }
